@@ -1,16 +1,26 @@
-### Hi there 👋
+```kotlin
+import org.graalvm.polyglot.*;
+import org.graalvm.polyglot.proxy.*;
 
-<!--
-**moeKiwiSAMA/moeKiwiSAMA** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+object Kiwi {
+    val name: String by lazy { "moeKiwiSAMA" }
+    var programmingLanguage: ArrayList<String> = arrayListOf<String>()
 
-Here are some ideas to get you started:
+    @JvmStatic
+    fun main(args: Array<String>) {
+        { "🥝 Kiwi" }.let { me ->
+            "🤝 Hi, you can call me ${me()}."
+                    .let(::println)
+        }
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+        programmingLanguage
+                .also { it.add(Context.create().eval("python", "print('🐍 Python')")) }
+                .also { it.add("☕ Kotlin") }
+                .also { it.add("🐹 Golang") }
+                .also { it.add("🦀 Rust") }
+                .let { "I can write some toys in ${it.joinToString()}." }
+                .let(::println)
+    }
+
+}
+```
