@@ -18,6 +18,7 @@ object Kiwi {
                 .also { it.add("☕ Kotlin") }
                 .also { it.add("🐹 Golang") }
                 .also { it.add("🦀 Rust") }
+                .also { it.add("🐋 Docker")}
                 .let { "I can write some toys in ${it.joinToString()}." }
                 .let(::println)
     }
